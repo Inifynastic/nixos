@@ -10,7 +10,7 @@
     ];
     system.stateVersion = "25.11";  # DANGER!!!! Lets not touch this for now.
 
-#=========== Bootloaders ============
+#=========== Hardware ============
 	boot.loader ={
 	systemd-boot.enable = false;
 	efi = {
@@ -23,7 +23,28 @@
 		useOSProber = true;
 	};
 };
-
+	
+	hardware.graphics.enable = true;
+	services.xserver.videoDrivers = ["nvidia"];
+	
+	hardware.nvidia = {
+		modesetting.enable = true;
+		powerManagement.enable = false; # In case my graphic driver gets corrupted
+		powerManagement.finegrained = false;
+		open = true;
+		nvidiaSettings = true;
+		package = config.boot.kernelPackages.nvidiaPackages.stable;
+		prime = {
+			#sync.enable = true;
+			offload = {
+				enable = true;
+				enableOffloadCmd = true;
+			};
+			
+			nvidiaBusId = "PCI:1:0:0";
+			amdgpuBusId = "PCI:6:0:0";
+		};
+	};
 
 #============= Host, Users and Packages========
 	networking.hostName = "NixOS";
@@ -37,7 +58,8 @@
 		pulseaudio
 		pavucontrol
 		networkmanagerapplet
-		git
+		lshw
+		pciutils
 	];
 	fonts.packages = with pkgs; [
 		noto-fonts-color-emoji 
@@ -68,13 +90,13 @@
 	};
 	programs.fish.enable = true;
 	programs.git = {
-	enable = false;
+	enable = true;
 	};
 	programs.firefox.enable = true;
 	nixpkgs.config.allowUnfree = true;
 	nixpkgs.overlays = [
   	(final: prev: {
-     	niri = inputs.nixpkgs-unstable.legacyPackages.${prev.system}.niri;
+     	niri = inputs.nixpkgs-unstable.legacyPackages.${prev.stdenv.hostPlatform.system}.niri;
     	})
   	];
 #============= Utilities================
@@ -83,7 +105,9 @@
 	services = {
 	gnome.gnome-keyring.enable = true;
 	power-profiles-daemon.enable = true;
-	flatpak.enable = true;
+	flatpak ={
+		enable = true;
+	};
 	pipewire = {
 		enable = true;
 		pulse.enable = true;

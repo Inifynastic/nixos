@@ -1,5 +1,7 @@
 { config, pkgs, inputs, ... }:
-
+# REMEMBER FLATPAK was added manually
+# "flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo" was ran manually
+# And sober was installed manually too
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.

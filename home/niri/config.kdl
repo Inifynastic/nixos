@@ -211,7 +211,14 @@ window-rule {
         xray true
     }
 }
+window-rule {
+    match app-id="vesktop"
 
+    background-effect {
+        blur true
+        xray true
+    }
+}
 window-rule {
     match app-id="Alacritty"
 
