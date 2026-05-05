@@ -1,0 +1,146 @@
+/* ============================================
+   Waybar Style — Dark Frosted Bar
+   ============================================ */
+ 
+* {
+    font-family: "JetBrainsMono Nerd Font", "Noto Sans", sans-serif;
+    font-size: 13px;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+}
+ 
+window#waybar {
+    background-color: rgba(20, 20, 28, 0.0);
+    color: #cdd6f4;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+}
+ 
+/* Bar border-bottom subtle line */
+window#waybar > box {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+ 
+/* ── Shared pill style for all right-side modules ── */
+#battery,
+#network,
+#bluetooth,
+#power-profiles-daemon,
+#tray,
+#clock,
+#pulseaudio,
+#backlight {
+    background-color: rgba(40, 40, 55, 0.75);
+    color: #cdd6f4;
+    padding: 3px 12px;
+    margin: 4px 3px;
+    border-radius: 999px;
+}
+ 
+/* ── Workspaces ── */
+#workspaces {
+    background-color: rgba(40, 40, 55, 0.75);
+    border-radius: 999px;
+    margin: 4px 6px;
+    padding: 0 4px;
+}
+ 
+#workspaces button {
+    padding: 2px 8px;
+    color: #6c7086;
+    background: transparent;
+    border-radius: 999px;
+    transition: all 0.2s ease;
+}
+ 
+#workspaces button.active,
+#workspaces button.focused {
+    color: #cdd6f4;
+    background-color: rgba(137, 180, 250, 0.18);
+}
+ 
+#workspaces button:hover {
+    color: #89b4fa;
+    background-color: rgba(137, 180, 250, 0.10);
+}
+ 
+/* ── Clock (center) ── */
+#clock {
+    font-weight: 600;
+    color: #cdd6f4;
+    letter-spacing: 0.03em;
+}
+ 
+/* ── Battery ── */
+#battery {
+   /* color: #a6e3a1;*/
+}
+ 
+#battery.charging {
+   /*( color: #a6e3a1;*/
+}
+ 
+#battery.warning:not(.charging) {
+    color: #f9e2af;
+}
+ 
+#battery.critical:not(.charging) {
+    color: #f38ba8;
+    animation: blink 0.5s linear infinite alternate;
+}
+ 
+@keyframes blink {
+    to { color: #ff0000; }
+}
+ 
+/* ── Network ── */
+#network {
+   /* color: #89dceb;*/
+}
+ 
+#network.disconnected {
+    color: #6c7086;
+}
+ 
+/* ── Bluetooth ── */
+#bluetooth {
+    color: #89b4fa;
+}
+ 
+#bluetooth.disabled {
+    color: #6c7086;
+}
+ 
+/* ── Power Profiles ── */
+#power-profiles-daemon {
+    color: #f9e2af;
+}
+ 
+/* ── Tray ── */
+#tray {
+    padding: 3px 10px;
+}
+ 
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+ 
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: rgba(243, 139, 168, 0.25);
+}
+ 
+/* ── Backlight ── */
+#backlight {
+    color: #f9e2af;
+}
+ 
+/* ── Tooltip ── */
+tooltip {
+    background-color: rgba(24, 24, 37, 0.95);
+    border: 1px solid rgba(137, 180, 250, 0.25);
+    border-radius: 10px;
+    color: #cdd6f4;
+    padding: 4px 8px;
+}

@@ -1,0 +1,70 @@
+{
+    "layer": "top",
+    "modules-left": ["niri/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["pulseaudio","network","bluetooth","battery","tray"],
+    "sway/window": {
+        "max-length": 50
+    },
+    "battery": {
+        "format": "{capacity}% {icon}",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "clock": {
+        "format-alt": "{:%a, %d. %b  %H:%M}"
+    },
+    "bluetooth": {
+	// "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
+		"format": "  ",
+		"format-disabled": " 󰂲 ",
+		"format-connected": " 󰂱 ",
+	},
+	"network": {
+		//"interface": "wlol",
+    	"format": " {ifname}",
+    	"format-wifi": "   ",
+	"format-alt": "{essid} {signalStrength}% ",
+    	"format-ethernet": "  ",
+    	"format-disconnected": " 󱛅 ", //An empty format will hide the module.
+    	"tooltip-format": " {ifname} via {gwaddr} 󰊗  ",
+    	"tooltip-format-wifi": " {signalStrength}%   ",
+    	"tooltip-format-ethernet": " {ifname}   ",
+    	"tooltip-format-disconnected": " Disconnected ",
+    	"max-length": 50
+	},
+	"power-profiles-daemon": {
+  		"format": "{icon}",
+  			"tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+  			"tooltip": true,
+  		"format-icons": {
+    			"default": "  ",
+    			"performance": "  ",
+    			"balanced": "  ",
+    			"power-saver": "  "
+     		}
+	},
+	"niri/workspaces": {
+		"format": " {index} "
+	},
+	"tray": {
+  		//"icon-size": 16,
+  		"spacing": 8
+	},
+	"backlight": {
+    	"device": "intel_backlight",
+   	"format": "{percent}% {icon}",
+   	"format-icons": ["  ", "  "]
+	},
+	"pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-bluetooth": "{volume}% {icon}",
+    "format-muted": "",
+    "scroll-step": 1,
+    "on-click": "pavucontrol",
+    "format-icons": {
+        "headphone": "  ",
+        "default": ["", ""]
+    },
+    "ignored-sinks": ["Easy Effects Sink"]
+	}
+}
