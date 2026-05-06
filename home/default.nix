@@ -32,6 +32,7 @@
 	vivaldi
 	neovim
 	xfce.thunar
+	obs-studio
 	
 	mako
 	fuzzel

@@ -156,7 +156,7 @@ layout {
 }
 // Miscellanous
 spawn-at-startup "waybar"
-spawn-at-startup "sh" "-c" "swww-daemon && swww img /etc/nixos/home/wallpapers/wallpaper3.jpg"
+spawn-at-startup "sh" "-c" "swww-daemon && swww img /etc/nixos/home/wallpapers/wallpaper4.jpg"
 prefer-no-csd
 //swww img ../wallpapers/wallpaper1.jpg
 hotkey-overlay {
