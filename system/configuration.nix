@@ -60,6 +60,7 @@
 		networkmanagerapplet
 		lshw
 		pciutils
+		capitaine-cursors
 	];
 	fonts.packages = with pkgs; [
 		noto-fonts-color-emoji 

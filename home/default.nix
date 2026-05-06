@@ -66,7 +66,13 @@
 
 	inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
-
+home.pointerCursor = {
+    gtk.enable = true;
+    x11.enable = true;
+    name = "capitaine-cursors";
+    size = 24;
+    package = pkgs.capitaine-cursors;
+};
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
