@@ -33,6 +33,7 @@
 	neovim
 	xfce.thunar
 	obs-studio
+	vlc
 	
 	mako
 	fuzzel
