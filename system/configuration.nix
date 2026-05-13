@@ -101,6 +101,7 @@
     	})
   	];
 #============= Utilities================
+	security.rtkit.enable = true;
 	networking.networkmanager.enable = true;
 	hardware.bluetooth.enable = true;
 	services = {
@@ -112,6 +113,9 @@
 	pipewire = {
 		enable = true;
 		pulse.enable = true;
+		alsa.enable = true;
+		alsa.support32Bit = true;
+		wireplumber.enable = true;
 	};
 	blueman.enable = true;
 	};

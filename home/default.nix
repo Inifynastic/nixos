@@ -34,6 +34,10 @@
 	xfce.thunar
 	obs-studio
 	vlc
+	libreoffice
+	
+	librewolf
+	tor
 	
 	mako
 	fuzzel
@@ -50,13 +54,14 @@
 	brightnessctl
 	wlogout
 	
+	
 	papirus-icon-theme
 	# FUN STUFF
 	fortune
 	cowsay
 	cava
 	pipes
-	bonsai
+	cbonsai
 	cmatrix
 	figlet
 
